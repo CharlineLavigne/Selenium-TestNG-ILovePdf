@@ -13,4 +13,4 @@ Automation of some functionalities of ILovePdf's website (https://www.ilovepdf.c
 
 Run testng.xml 
 
-Please note that you may need to download the correct chromedriver, geckodriver or safaridriver depending your browsers versions
+Please note that you may need to download the correct chromedriver, geckodriver or safaridriver depending your browser versions
