@@ -1,7 +1,6 @@
 package com.utils;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -10,12 +9,18 @@ import java.net.URL;
 
 public class Base {
 
-    //Parametize the browser String ?
+
     public WebDriver initializeBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities dc = new DesiredCapabilities();
 
         switch(browser) {
             case "chrome":
+                dc.setBrowserName(browser);
+                break;
+            case "firefox":
+                dc.setBrowserName(browser);
+                break;
+            case "safari":
                 dc.setBrowserName(browser);
                 break;
         }
