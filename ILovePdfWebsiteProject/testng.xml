@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="H/Users/charlinelavigne/Desktop/GitProjects/ILovePdfWebsiteProject/src/com/data/ShoppingListData.xlsx
+<suite name="Home page and excel to pdf page suite" thread-count="5" parallel="tests">
+    <parameter name="excelPdfTitle" value="Convert EXCEL to PDF"></parameter>
+    <listeners>
+        <listener class-name="com.listeners.Listener"></listener>
+    </listeners>
 
-ome page and excel to pdf page suite" thread-count="5" parallel="tests">
     <test name="test chrome mac">
         <classes>
-            <class name="com.tests.SafariBrowserMac"></class>
+            <class name="com.tests.ChromeBrowserMac"></class>
         </classes>
     </test>
     <test name="test chrome windows">

@@ -25,9 +25,9 @@ public abstract class ExcelToPdf {
 
 
     //This method tests if user can go to ExcelToPdf page from home page
-    public void accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(){
+    public void accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(String excelPdfTitle){
         excelToPdf.clickExcelToPdfLink();
-        Assert.assertTrue(excelToPdf.getTextOfHeaderTitle().equals("Convert EXCEL to PDF"));
+        Assert.assertTrue(excelToPdf.getTextOfHeaderTitle().equals(excelPdfTitle));
     }
 
 

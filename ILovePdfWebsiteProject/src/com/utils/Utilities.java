@@ -59,11 +59,11 @@ public class Utilities {
                     if(cell.getCellType().toString().equals("NUMERIC")) {
                         double doubleVal = cell.getNumericCellValue();
                         data[i][j] = String.valueOf(doubleVal);
-                        System.out.print("Cell value is: " + cell.getNumericCellValue() + " ");
+                        //System.out.print("Cell value is: " + cell.getNumericCellValue() + " ");
                     }
                     else {
                         data[i][j] = cell.getStringCellValue();
-                        System.out.println("Cell value is: " + cell.getStringCellValue());
+                        //System.out.println("Cell value is: " + cell.getStringCellValue());
                     }
                 }
             }

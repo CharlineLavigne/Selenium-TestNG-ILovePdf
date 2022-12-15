@@ -8,6 +8,7 @@ import com.utils.Base;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
@@ -43,9 +44,10 @@ public class ChromeBrowserWindows extends Base {
     }
 
 
+    @Parameters({"excelPdfTitle"})
     @Test(priority = 3, groups = {"homePage"})
-    public void accessExcelToPdf(){
-        excelToPdfPageWindows.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome();
+    public void accessExcelToPdf(String excelpdfTitle){
+        excelToPdfPageWindows.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(excelpdfTitle);
     }
 
 

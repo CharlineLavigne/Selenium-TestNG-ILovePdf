@@ -41,12 +41,13 @@ public class ChromeBrowserMac extends Base {
     }
 
 
+    @Parameters({"excelPdfTitle"})
     @Test(priority = 3, groups = {"homePage"})
-    public void accessExcelToPdf(){
-        excelToPdfPageMac.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome();
+    public void accessExcelToPdf(String excelpdfTitle){
+        excelToPdfPageMac.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(excelpdfTitle);
     }
 
-
+    
     @Test(priority = 4, groups = {"excelToPdf"}, dependsOnMethods = "accessExcelToPdf")
     public void checkDataTest() throws FileNotFoundException {
         excelToPdfPageMac.checkDataTest_shouldVerifyExcelData("/Users/charlinelavigne/Desktop/GitProjects/ILovePdfWebSite/ILovePdfWebsiteProject/src/com/data/ShoppingListData.xlsx" ,"Apple", "2", "Ananas", 0, 1, 5);
