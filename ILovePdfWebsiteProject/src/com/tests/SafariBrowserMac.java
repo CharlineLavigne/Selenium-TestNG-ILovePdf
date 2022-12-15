@@ -1,4 +1,4 @@
-package com.grid;
+package com.tests;
 
 import com.excelToPdfPage.ExcelToPdf;
 import com.excelToPdfPage.ExcelToPdfMac;
@@ -17,8 +17,8 @@ import java.net.MalformedURLException;
 public class SafariBrowserMac extends Base {
 
     public WebDriver driver;
-    ExcelToPdf excelToPdfPageMac = new ExcelToPdfMac();
-    HomePage homePageMac = new HomePageMac();
+    ExcelToPdf excelToPdfPageMac;
+    HomePage homePageMac;
 
 
     @BeforeClass
@@ -26,25 +26,27 @@ public class SafariBrowserMac extends Base {
         driver = initializeBrowser("safari");
         driver.get("https://www.ilovepdf.com/");
         driver.manage().window().maximize();
+        excelToPdfPageMac = new ExcelToPdfMac(driver);
+        homePageMac = new HomePageMac(driver);
     }
 
 
     @Test(priority = 1, groups = {"homePage"})
     public void closeToastMessage() {
-        homePageMac.closeToastMessage_shouldCloseLanguageToastMessage(driver);
+        homePageMac.closeToastMessage_shouldCloseLanguageToastMessage();
     }
 
 
     @Test(priority = 2, groups = {"homePage"})
     public void downloadDesktopApp() {
 
-        homePageMac.downloadApp_shouldDownloadDesktopApp(driver);
+        homePageMac.downloadApp_shouldDownloadDesktopApp();
     }
 
 
     @Test(priority = 3, groups = {"homePage"})
     public void accessExcelToPdf() {
-        excelToPdfPageMac.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(driver);
+        excelToPdfPageMac.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome();
     }
 
 
@@ -56,7 +58,7 @@ public class SafariBrowserMac extends Base {
 
     @Test(priority = 5, groups = {"excelToPdf"}, dependsOnMethods = "accessExcelToPdf")
     public void uploadExcel() throws IOException {
-        excelToPdfPageMac.uploadExcel_shouldUploadExcelFile(driver, "/Users/charlinelavigne/Desktop/GitProjects/ILovePdfWebSite/fileUploadScript.scpt");
+        excelToPdfPageMac.uploadExcel_shouldUploadExcelFile("/Users/charlinelavigne/Desktop/GitProjects/ILovePdfWebSite/fileUploadScript.scpt");
     }
 
 

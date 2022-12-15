@@ -1,8 +1,8 @@
 package com.excelToPdfPage;
 
+import com.pom.ExcelToPdfPO;
 import com.utils.Utilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.io.FileNotFoundException;
@@ -12,14 +12,22 @@ import java.util.Arrays;
 
 public abstract class ExcelToPdf {
 
-    Utilities utils = new Utilities();
+    WebDriver driver;
+    Utilities utils;
+    ExcelToPdfPO excelToPdf;
+
+
+    public ExcelToPdf(WebDriver driver){
+        this.driver = driver;
+        utils = new Utilities(driver);
+        excelToPdf = new ExcelToPdfPO(driver);
+    }
 
 
     //This method tests if user can go to ExcelToPdf page from home page
-    public void accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(WebDriver driver){
-        utils.waitForElement(driver, "//a[@title='Excel to PDF']").click();
-        WebElement excelHeaderTitle = utils.waitForElement(driver, "//h1[@class='tool__header__title']");
-        Assert.assertTrue(excelHeaderTitle.getText().equals("Convert EXCEL to PDF"));
+    public void accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(){
+        excelToPdf.clickExcelToPdfLink();
+        Assert.assertTrue(excelToPdf.getTextOfHeaderTitle().equals("Convert EXCEL to PDF"));
     }
 
 
@@ -39,5 +47,5 @@ public abstract class ExcelToPdf {
     }
 
 
-    public abstract void uploadExcel_shouldUploadExcelFile(WebDriver driver, String excelPath) throws IOException;
+    public abstract void uploadExcel_shouldUploadExcelFile(String excelPath) throws IOException;
 }

@@ -15,20 +15,27 @@ import java.time.Duration;
 
 public class Utilities {
 
+    WebDriver driver;
 
-    public static WebElement waitForElement(WebDriver driver, String xpathValue) {
+
+    public Utilities(WebDriver driver){
+        this.driver = driver;
+    }
+
+
+    public WebElement waitForElement(String xpathValue) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathValue)));
     }
 
 
-    public static void selectElement(WebDriver driver, String xpathValue, String selectedText){
-        Select elementSelected = new Select(waitForElement(driver,xpathValue));
+    public void selectElement(String xpathValue, String selectedText){
+        Select elementSelected = new Select(waitForElement(xpathValue));
         elementSelected.selectByVisibleText(selectedText);
     }
 
 
-    public static Object[][] readExcelData(String dataFile) {
+    public Object[][] readExcelData(String dataFile) {
         String data[][] = null;
 
         try {

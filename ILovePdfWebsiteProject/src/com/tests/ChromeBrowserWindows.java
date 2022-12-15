@@ -1,4 +1,4 @@
-package com.grid;
+package com.tests;
 
 import com.excelToPdfPage.ExcelToPdf;
 import com.excelToPdfPage.ExcelToPdfWindows;
@@ -17,8 +17,8 @@ import java.net.MalformedURLException;
 public class ChromeBrowserWindows extends Base {
 
     public WebDriver driver;
-    ExcelToPdf excelToPdfPageWindows = new ExcelToPdfWindows();
-    HomePage homePageWindows = new HomePageWindows();
+    ExcelToPdf excelToPdfPageWindows;
+    HomePage homePageWindows;
 
 
     @BeforeClass
@@ -26,24 +26,26 @@ public class ChromeBrowserWindows extends Base {
         driver = initializeBrowser("chrome");
         driver.get("https://www.ilovepdf.com/");
         driver.manage().window().maximize();
+        excelToPdfPageWindows = new ExcelToPdfWindows(driver);
+        homePageWindows = new HomePageWindows(driver);
     }
 
 
     @Test(priority = 1, groups = {"homePage"})
     public void closeToastMessage(){
-        homePageWindows.closeToastMessage_shouldCloseLanguageToastMessage(driver);
+        homePageWindows.closeToastMessage_shouldCloseLanguageToastMessage();
     }
 
 
     @Test(priority = 2, groups = {"homePage"})
     public void downloadDesktopApp(){
-        homePageWindows.downloadApp_shouldDownloadDesktopApp(driver);
+        homePageWindows.downloadApp_shouldDownloadDesktopApp();
     }
 
 
     @Test(priority = 3, groups = {"homePage"})
     public void accessExcelToPdf(){
-        excelToPdfPageWindows.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome(driver);
+        excelToPdfPageWindows.accessExcelToPdf_shouldAccessExcelToPdfPageFromHome();
     }
 
 

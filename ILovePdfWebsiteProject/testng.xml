@@ -4,27 +4,27 @@
 ome page and excel to pdf page suite" thread-count="5" parallel="tests">
     <test name="test chrome mac">
         <classes>
-            <class name="com.grid.SafariBrowserMac"></class>
+            <class name="com.tests.SafariBrowserMac"></class>
         </classes>
     </test>
     <test name="test chrome windows">
         <classes>
-            <class name="com.grid.FirefoxBrowserWindows"></class>
+            <class name="com.tests.FirefoxBrowserWindows"></class>
         </classes>
     </test>
     <test name="test firefox mac">
         <classes>
-            <class name="com.grid.FirefoxBrowserMac"></class>
+            <class name="com.tests.FirefoxBrowserMac"></class>
         </classes>
     </test>
     <test name="test firefox windows">
         <classes>
-            <class name="com.grid.ChromeBrowserWindows"></class>
+            <class name="com.tests.ChromeBrowserWindows"></class>
         </classes>
     </test>
     <test name="test safari mac">
         <classes>
-            <class name="com.grid.SafariBrowserMac"></class>
+            <class name="com.tests.SafariBrowserMac"></class>
         </classes>
     </test>
 </suite>

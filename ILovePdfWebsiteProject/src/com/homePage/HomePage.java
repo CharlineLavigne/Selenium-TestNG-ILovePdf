@@ -1,29 +1,35 @@
 package com.homePage;
 
-import com.utils.Utilities;
+import com.pom.HomePagePO;
 import org.openqa.selenium.*;
 import org.testng.asserts.SoftAssert;
 
 public abstract class HomePage {
 
+    WebDriver driver;
     SoftAssert softAssert = new SoftAssert();
-    Utilities utils = new Utilities();
+    HomePagePO homePage;
+
+
+    public HomePage (WebDriver driver){
+        this.driver = driver;
+        homePage = new HomePagePO(driver);
+    }
 
 
     //This method tests if user can close the switch language toast message when displayed
     int attempt = 0;
-    public void closeToastMessage_shouldCloseLanguageToastMessage(WebDriver driver){
+    public void closeToastMessage_shouldCloseLanguageToastMessage(){
         try{
-            WebElement toastMessageCloseBtn = utils.waitForElement(driver, "//button[@class='toast-close-button']");
-            softAssert.assertTrue(toastMessageCloseBtn.getText().equals("×"));
+            homePage.closeToastMessage();
+            softAssert.assertNotNull(homePage.getTextToastMessage());
             softAssert.assertAll();
-            toastMessageCloseBtn.click();
 
         }catch(StaleElementReferenceException e){
             driver.navigate().refresh();
             attempt++;
             if(attempt < 3){
-                closeToastMessage_shouldCloseLanguageToastMessage(driver);
+                closeToastMessage_shouldCloseLanguageToastMessage();
             }
             else{
                 System.out.println("Toast message close button has been deleted or is no longer attached to the DOM");
@@ -34,5 +40,5 @@ public abstract class HomePage {
     }
 
 
-    public abstract void downloadApp_shouldDownloadDesktopApp(WebDriver driver);
+    public abstract void downloadApp_shouldDownloadDesktopApp();
 }
