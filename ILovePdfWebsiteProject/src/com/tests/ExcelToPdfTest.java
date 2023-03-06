@@ -33,7 +33,7 @@ public class ExcelToPdfTest {
 
     @Parameters({"system"})
     @Test(priority = 5, groups = {"excelToPdf"}, dependsOnMethods = "accessExcelToPdf")
-    public void uploadExcel(String system) throws IOException, InterruptedException {
+    public void uploadExcel(String system) throws IOException{
         if(system.equals("windows")){
             excelToPdfPAgeWindows.uploadExcel_shouldUploadExcelFile("auto it script needs to be added");
         }
