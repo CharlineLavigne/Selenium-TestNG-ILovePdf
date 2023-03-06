@@ -1,2 +1,14 @@
+# System
 /.metadata/
 .DS_Store
+
+# Intellij
+*.iml
+.idea
+out/
+
+# Maven
+target/
+
+# Screenshots
+*.png

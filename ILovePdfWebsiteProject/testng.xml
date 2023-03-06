@@ -6,28 +6,43 @@
     </listeners>
 
     <test name="test chrome mac">
+        <parameter name="system" value="mac"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
         <classes>
-            <class name="com.tests.ChromeBrowserMac"></class>
+            <class name="com.tests.HomePageTest"></class>
+            <class name="com.tests.ExcelToPdfTest"></class>
         </classes>
     </test>
     <test name="test chrome windows">
+        <parameter name="system" value="windows"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
         <classes>
-            <class name="com.tests.FirefoxBrowserWindows"></class>
+            <class name="com.tests.HomePageTest"></class>
+            <class name="com.tests.ExcelToPdfTest"></class>
         </classes>
     </test>
     <test name="test firefox mac">
+        <parameter name="system" value="mac"></parameter>
+        <parameter name="browserName" value="firefox"></parameter>
         <classes>
-            <class name="com.tests.FirefoxBrowserMac"></class>
+            <class name="com.tests.HomePageTest"></class>
+            <class name="com.tests.ExcelToPdfTest"></class>
         </classes>
     </test>
     <test name="test firefox windows">
+        <parameter name="system" value="windows"></parameter>
+        <parameter name="browserName" value="firefox"></parameter>
         <classes>
-            <class name="com.tests.ChromeBrowserWindows"></class>
+            <class name="com.tests.HomePageTest"></class>
+            <class name="com.tests.ExcelToPdfTest"></class>
         </classes>
     </test>
     <test name="test safari mac">
+        <parameter name="system" value="mac"></parameter>
+        <parameter name="browserName" value="safari"></parameter>
         <classes>
-            <class name="com.tests.SafariBrowserMac"></class>
+            <class name="com.tests.HomePageTest"></class>
+            <class name="com.tests.ExcelToPdfTest"></class>
         </classes>
     </test>
 </suite>

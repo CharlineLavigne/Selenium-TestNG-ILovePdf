@@ -8,13 +8,13 @@ public class HomePagePO {
 
     WebDriver driver;
     Utilities utils;
-    String toastCloseBtnWait = "//button[@class='toast-close-button']";
+    By toastCloseBtnWait = By.xpath("//button[@class='toast-close-button']");
     By toastTitle = By.className("toast-title");
     By desktopAppIconDownload = By.cssSelector("[title='Desktop']");
-    String btnDownloadDesktopAppWait = "//div[@class='binary'] /a";
+    By btnDownloadDesktopAppWait = By.xpath("//div[@class='binary'] /a");
     By btnDownloadDesktopAppMac = By.id("mac");
     By btnDownloadDesktopAppWin = By.id("win64");
-    String btnSelectSystemAppWait = "//div[@class='binary__select']";
+    By btnSelectSystemAppWait = By.xpath("//div[@class='binary__select']");
     By macDesktopAppSelect = By.className("mac");
     By winDesktopAppSelect = By.className("win64");
 
@@ -26,7 +26,7 @@ public class HomePagePO {
 
 
     public void closeToastMessage(){
-        utils.waitForElement(toastCloseBtnWait);
+        utils.waitForElement(driver.findElement(toastCloseBtnWait));
     }
 
 
@@ -41,7 +41,7 @@ public class HomePagePO {
 
 
     public void downloadDesktopApp(){
-        utils.waitForElement(btnDownloadDesktopAppWait).click();
+        utils.waitForElement(driver.findElement(btnDownloadDesktopAppWait)).click();
     }
 
 
@@ -56,7 +56,7 @@ public class HomePagePO {
 
 
     public void selectSystemDesktopApp(){
-        utils.waitForElement(btnSelectSystemAppWait).click();
+        utils.waitForElement(driver.findElement(btnSelectSystemAppWait)).click();
     }
 
 

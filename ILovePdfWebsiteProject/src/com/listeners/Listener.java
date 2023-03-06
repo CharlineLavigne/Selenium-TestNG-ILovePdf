@@ -1,7 +1,6 @@
 package com.listeners;
 
-import com.tests.ChromeBrowserWindows;
-import com.tests.SafariBrowserMac;
+import com.tests.BaseTest;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,7 +12,7 @@ import org.testng.ITestResult;
 import java.io.File;
 import java.io.IOException;
 
-public class Listener extends ChromeBrowserWindows implements ITestListener, ISuiteListener {
+public class Listener extends BaseTest implements ITestListener, ISuiteListener {
 
     public void onStart(ISuite suite) {
         System.out.println("Starting the execution of suite: " + suite.getName());
@@ -30,7 +29,8 @@ public class Listener extends ChromeBrowserWindows implements ITestListener, ISu
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         try {
-            FileUtils.copyFile(source, new File("./Screenshots/" + result.getName()));
+            String screenshotPath = System.getProperty("user.dir") + File.separator + "screenshots" + File.separator + result.getName() + ".png";
+            FileUtils.copyFile(source, new File(screenshotPath));
             System.out.println("screenshot taken");
         }
         catch (IOException e) {

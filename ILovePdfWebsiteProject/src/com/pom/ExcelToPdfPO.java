@@ -1,15 +1,16 @@
 package com.pom;
 
 import com.utils.Utilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ExcelToPdfPO {
 
     WebDriver driver;
     Utilities utils;
-    String excelToPdfLinkWait = "//a[@title='Excel to PDF']";
-    String excelHeaderTitleWait = "//h1[@class='tool__header__title']";
-    String excelUploadBtnWait = "//a[@id='pickfiles']";
+    By excelToPdfLinkWait = By.xpath("//a[@title='Excel to PDF']");
+    By excelHeaderTitleWait = By.xpath("//h1[@class='tool__header__title']");
+    By excelUploadBtnWait = By.xpath("//a[@id='pickfiles']");
 
 
     public ExcelToPdfPO(WebDriver driver){
@@ -19,17 +20,17 @@ public class ExcelToPdfPO {
 
 
     public void clickExcelToPdfLink(){
-        utils.waitForElement(excelToPdfLinkWait).click();
+        utils.waitForElement(driver.findElement(excelToPdfLinkWait)).click();
     }
 
 
     public String getTextOfHeaderTitle(){
-        return utils.waitForElement(excelHeaderTitleWait).getText();
+        return utils.waitForElement(driver.findElement(excelHeaderTitleWait)).getText();
     }
 
 
     public void clickExcelUploadBtn(){
-        utils.waitForElement(excelUploadBtnWait).click();
+        utils.waitForElement(driver.findElement(excelUploadBtnWait)).click();
     }
 
 }

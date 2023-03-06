@@ -2,6 +2,7 @@ package com.homePage;
 
 import com.pom.HomePagePO;
 import org.openqa.selenium.*;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 public abstract class HomePage {
@@ -24,6 +25,7 @@ public abstract class HomePage {
             homePage.closeToastMessage();
             softAssert.assertNotNull(homePage.getTextToastMessage());
             softAssert.assertAll();
+            Assert.assertEquals(1, 2);
 
         }catch(StaleElementReferenceException e){
             driver.navigate().refresh();

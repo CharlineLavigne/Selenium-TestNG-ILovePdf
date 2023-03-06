@@ -18,7 +18,7 @@ public class HomePageWindows extends HomePage{
     public void downloadApp_shouldDownloadDesktopApp(){
         homepage.clickIconDesktopDownload();
         try{
-            homePage.downloadDesktopApp();
+            homepage.downloadDesktopApp();
             Assert.assertTrue(homepage.getTestDownloadDesktopAppWin().equals("Download for Windows"));
         }catch(AssertionError e){
             homepage.selectSystemDesktopApp();
