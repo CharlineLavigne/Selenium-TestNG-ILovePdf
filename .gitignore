@@ -1,2 +1,9 @@
+# System
 /.metadata/
 .DS_Store
+
+# Intellij
+*.iml
+.idea
+
+# TestNG

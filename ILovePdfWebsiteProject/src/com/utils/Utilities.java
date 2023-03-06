@@ -1,7 +1,6 @@
 package com.utils;
 
 import org.apache.poi.ss.usermodel.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,14 +22,14 @@ public class Utilities {
     }
 
 
-    public WebElement waitForElement(String xpathValue) {
+    public WebElement waitForElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathValue)));
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 
-    public void selectElement(String xpathValue, String selectedText){
-        Select elementSelected = new Select(waitForElement(xpathValue));
+    public void selectElement(WebElement element, String selectedText){
+        Select elementSelected = new Select(waitForElement(element));
         elementSelected.selectByVisibleText(selectedText);
     }
 
@@ -48,7 +47,7 @@ public class Utilities {
 
             int rowCount = sheet.getLastRowNum();
             data = new String[rowCount+1][2];
-            
+
             for(int i=0; i<= rowCount; i++) {
                 row = sheet.getRow(i);
                 int cellCount = row.getLastCellNum();
@@ -59,11 +58,11 @@ public class Utilities {
                     if(cell.getCellType().toString().equals("NUMERIC")) {
                         double doubleVal = cell.getNumericCellValue();
                         data[i][j] = String.valueOf(doubleVal);
-                        //System.out.print("Cell value is: " + cell.getNumericCellValue() + " ");
+                        System.out.print("Cell value is: " + cell.getNumericCellValue() + " ");
                     }
                     else {
                         data[i][j] = cell.getStringCellValue();
-                        //System.out.println("Cell value is: " + cell.getStringCellValue());
+                        System.out.println("Cell value is: " + cell.getStringCellValue());
                     }
                 }
             }
