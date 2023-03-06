@@ -1,16 +1,14 @@
 # ILovePdfWebsite
 
-Automation of some functionalities of ILovePdf's website (https://www.ilovepdf.com) on multiple browsers and platforms
+Simple automation of some functionalities of the ILovePdf's website (https://www.ilovepdf.com) on multiple browsers and platforms.
 
-## Technologies
+## Requirements
+- Java 11 or above
+- Maven
 
-- Java
-- Selenium
-- Test NG
-- Apache POI
+## Setup
+1. Build the Maven dependencies in the pom.xml file
+2. In the project root folder run `java -jar selenium-server-4.8.1.jar standalone`
 
-## Launch
-
-Run testng.xml 
-
-Please note that you may need to download the correct chromedriver, geckodriver or safaridriver depending your browser versions
+## Run tests
+In the project root folder run `mvn test -DsuiteXmlFile=testng.xml`
