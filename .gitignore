@@ -6,4 +6,5 @@
 *.iml
 .idea
 
-# TestNG
+# Maven
+target/
