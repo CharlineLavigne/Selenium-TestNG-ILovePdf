@@ -12,3 +12,5 @@ Simple automation of some functionalities of the ILovePdf's website (https://www
 
 ## Run tests
 In the project root folder run `mvn test -DsuiteXmlFile=testng.xml`
+
+*For mac users, the applescript needs to be updated with the right path : "/Users/**user name**/**path until the project**/ILovePdfWebSite/ILovePdfWebsiteProject/src/com/data/ShoppingListData.xlsx"*
